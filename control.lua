@@ -12,7 +12,7 @@ end
 
 local function check_force(force)
     for name in string.gmatch(settings.global["fgcb-allowed-forces"].value, "([^,]+)") do
-        if force.name == name then
+        if force.name:lower() == name:lower() then
             return true
         end
     end
@@ -88,3 +88,4 @@ end
 
 -- Run this on startup
 script.on_init(initStorage)
+
